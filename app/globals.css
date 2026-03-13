@@ -4,8 +4,8 @@
   --color-background: #ffffff;
   --color-foreground: #111111;
   --color-muted: #666666;
-  --color-border: #e0e0e0;
-  --color-surface: #f7f7f7;
+  --color-border: #d4d4d4;
+  --color-surface: #f8f8f8;
   --color-verdict-green: #2a7d3f;
   --color-verdict-yellow: #b8860b;
   --color-verdict-red: #c22a2a;
@@ -17,4 +17,29 @@ body {
   background: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-sans);
+}
+
+/* Verdict color utilities */
+.verdict-green { color: var(--color-verdict-green); }
+.verdict-yellow { color: var(--color-verdict-yellow); }
+.verdict-red { color: var(--color-verdict-red); }
+.verdict-bg-green { background-color: var(--color-verdict-green); }
+.verdict-bg-yellow { background-color: var(--color-verdict-yellow); }
+.verdict-bg-red { background-color: var(--color-verdict-red); }
+.verdict-border-green { border-color: var(--color-verdict-green); }
+.verdict-border-yellow { border-color: var(--color-verdict-yellow); }
+.verdict-border-red { border-color: var(--color-verdict-red); }
+
+/* Serif typography */
+.font-serif {
+  font-family: var(--font-serif);
+}
+
+/* Thin rule — newspaper style */
+.rule {
+  border-top: 1px solid var(--color-border);
+}
+
+.rule-thick {
+  border-top: 2px solid var(--color-foreground);
 }
