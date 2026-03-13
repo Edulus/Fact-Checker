@@ -29,7 +29,7 @@ export async function checkClaim(rawClaim: string): Promise<Verdict> {
   const client = new Anthropic();
 
   const message = await client.messages.create({
-    model: "claude-3-5-sonnet-20241022",
+    model: "claude-sonnet-4-20250514",
     max_tokens: 2000,
     system: VERDICT_SYSTEM_PROMPT,
     messages: [
