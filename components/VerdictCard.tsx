@@ -72,9 +72,7 @@ export default function VerdictCard({
             className={`${colors.dot} inline-block w-3 h-3 rounded-full mt-1.5 shrink-0`}
           />
           <div className="min-w-0">
-            <p className="font-serif text-base leading-snug">
-              {verdict.claim}
-            </p>
+            <p className="font-serif text-base leading-snug">{verdict.claim}</p>
             <div className="flex items-center gap-3 mt-1.5 text-xs text-[var(--color-muted)]">
               <span className={`font-medium ${colors.text}`}>
                 {verdictLabel(verdict.verdict)}
@@ -104,7 +102,7 @@ export default function VerdictCard({
           </span>
         </div>
         <h1 className="font-serif text-xl leading-relaxed">
-          &ldquo;{verdict.claim}&rdquo;
+          &ldquo;{verdict.claim.replace(/^["]+|["]+$/g, "")}&rdquo;
         </h1>
         <p className="text-xs text-[var(--color-muted)] mt-3">
           Checked {formatDate(verdict.checkedAt)}
@@ -127,7 +125,7 @@ export default function VerdictCard({
         {verdict.sources.against.length > 0 && (
           <div className="mb-3">
             <h3 className="text-xs font-medium text-[var(--color-muted)] mb-1">
-              Evidence against
+              Against
             </h3>
             <ul className="space-y-1">
               {verdict.sources.against.map((s, i) => (
@@ -144,7 +142,7 @@ export default function VerdictCard({
         {verdict.sources.for.length > 0 && (
           <div>
             <h3 className="text-xs font-medium text-[var(--color-muted)] mb-1">
-              Evidence for
+              For
             </h3>
             <ul className="space-y-1">
               {verdict.sources.for.map((s, i) => (
