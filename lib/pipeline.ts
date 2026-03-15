@@ -31,6 +31,7 @@ export async function checkClaim(rawClaim: string): Promise<Verdict> {
   const message = await client.messages.create({
     model: "claude-sonnet-4-20250514",
     max_tokens: 2000,
+    temperature: 0,
     system: VERDICT_SYSTEM_PROMPT,
     messages: [
       {
@@ -71,7 +72,9 @@ export async function checkClaim(rawClaim: string): Promise<Verdict> {
     amplifiers: Array.isArray(parsed.amplifiers) ? parsed.amplifiers : [],
     fallacies: Array.isArray(parsed.fallacies) ? parsed.fallacies : [],
     sources: {
-      against: Array.isArray(parsed.sources?.against) ? parsed.sources.against : [],
+      against: Array.isArray(parsed.sources?.against)
+        ? parsed.sources.against
+        : [],
       for: Array.isArray(parsed.sources?.for) ? parsed.sources.for : [],
     },
     tags: Array.isArray(parsed.tags) ? parsed.tags : [],
