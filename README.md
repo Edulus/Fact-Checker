@@ -57,11 +57,11 @@ NEXT_PUBLIC_SITE_URL=
 
 ## Documentation index
 
-| Document | Purpose |
-|---|---|
-| [PRODUCT.md](./docs/PRODUCT.md) | Vision, user journey, UX principles, verdict design, visual design |
-| [TECH.md](./docs/TECH.md) | Stack, pipeline architecture, API integrations |
-| [DATA.md](./docs/DATA.md) | Database schema, data model, tagging system |
+| Document                        | Purpose                                                                     |
+| ------------------------------- | --------------------------------------------------------------------------- |
+| [PRODUCT.md](./docs/PRODUCT.md) | Vision, user journey, UX principles, verdict design, visual design          |
+| [TECH.md](./docs/TECH.md)       | Stack, pipeline architecture, API integrations                              |
+| [DATA.md](./docs/DATA.md)       | Database schema, data model, tagging system                                 |
 | [decisions/](./docs/decisions/) | Architecture Decision Records — framework, AI provider, data model, funding |
 
 ---
@@ -69,3 +69,23 @@ NEXT_PUBLIC_SITE_URL=
 ## For Claude instances working on this project
 
 Read `PRODUCT.md` first to understand what we are building and why. Then read `TECH.md` to understand the system. Read the relevant ADR before modifying any architectural decision. The ADRs exist so that reasoning is never lost — if you are about to make a decision that conflicts with an ADR, flag it explicitly rather than silently overriding it.
+
+## Triage principle — bugs and ideas noticed during testing
+
+When a bug, tweak, or improvement surfaces during testing, apply this filter before acting on it:
+
+**Fix immediately if it is foundational:**
+
+- Touches the data model (missing field, wrong type, schema decision that compounds over time)
+- Affects the AI prompt output or JSON schema the pipeline depends on
+- Breaks a core user flow — the app is unusable or wrong in a meaningful way
+- Reveals a wrong architectural assumption
+
+**Log it in Doing_ToDo_Done.md and keep moving if it is cosmetic or additive:**
+
+- Visual tweaks — font size, spacing, wording, colour
+- Nice-to-have features or ideas
+- Bugs that do not block the critical path
+- Improvements that occurred during testing but are unrelated to the current task
+
+The tracker exists so that nothing is lost. The discipline is staying on the critical path until the app is genuinely functional end-to-end. Cosmetic work done before the database exists is work done on a foundation that isn't finished yet.
